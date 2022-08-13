@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Overleaf++",
+  "description": "Extensions and enhancements added to Overleaf",
+  "version": "0.0.1",
+  "action": {
+    "default_popup": "src/popup/index.html"
+  },
+  "web_accessible_resources": [{
+    "resources": ["assets/content.js"],
+    "matches": ["<all_urls>"]
+  }],
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["assets/inject.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+
+data
+
+csrfToken
+
+memoizedState.element.props.ide.editorManager.$scope.project.rootFolder
