@@ -37,8 +37,8 @@ export type FolderFileEntity = FileEntity & {
 export type FileTreeManager = {
   selected_entity_id: string;
   getCurrentFolder: () => FolderFileEntity;
-  findEntityById: (id: string) => FileEntity;
-  findEntityByPath: (path: string) => FileEntity;
+  findEntityById: (id: string) => FileEntity | undefined;
+  findEntityByPath: (path: string) => FileEntity | undefined;
   _findParentFolder: (entity: FileEntity) => FolderFileEntity | undefined;
   recalculateDocList: () => void;
 };

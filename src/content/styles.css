@@ -43,7 +43,7 @@ ul.opp-drag-over:not(.file-tree-list)::after {
   padding: 8px;
 }
 
-.opp-hoverer-popup > img {
+.opp-hoverer-popup > img, .opp-hoverer-popup > embed {
   width: 100%;
   height: 100%;
   object-fit: contain;

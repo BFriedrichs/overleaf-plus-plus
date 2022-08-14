@@ -21,7 +21,11 @@ export const findEntityByPath = (path: string) => {
 
 export const findParentFolder = (id: string) => {
   const treeManager = getRawFileTreeManager();
-  return treeManager._findParentFolder(findEntityById(id));
+  const entity = findEntityById(id);
+  if (!entity) {
+    return;
+  }
+  return treeManager._findParentFolder(entity);
 };
 
 export const onFileUploaded = (
