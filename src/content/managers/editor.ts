@@ -36,6 +36,6 @@ export const onTextHover = (
   });
 };
 
-export const getLineElement = (row: number): HTMLElement => {
-  return getAceManager().renderer.$textLayer.$lines.cells[row].element;
+export const getLineElement = (row: number): HTMLElement | undefined => {
+  return getAceManager().renderer?.$textLayer?.$lines?.cells[row]?.element;
 };

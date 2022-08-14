@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="132.55626mm"
+   height="132.55626mm"
+   viewBox="0 0 132.55626 132.55626"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   sodipodi:docname="notfound.svg"
+   inkscape:export-filename="/Users/bjoern/code/overleaf-plus-plus/src/overleaf-plus-plus/public/images/notfound.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:snap-page="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="false"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-center="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.57549102"
+     inkscape:cx="66.03057"
+     inkscape:cy="516.08103"
+     inkscape:window-width="1293"
+     inkscape:window-height="878"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg_6"
+     showborder="false" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-31.745587,-21.994314)">
+    <g
+       id="g982">
+      <g
+         id="g878"
+         transform="matrix(0.26458333,0,0,0.26458333,55.528112,22.126609)">
+        <title
+           id="title870">Layer 1</title>
+        <g
+           id="svg_6"
+           stroke="null">
+          <rect
+             fill="#ffffff"
+             x="-89.386711"
+             y="-1.1336058e-05"
+             width="500.00003"
+             height="500.00003"
+             id="svg_1"
+             stroke="#000000"
+             style="fill:#dfdfdf;fill-opacity:1" />
+          <text
+             fill="#000000"
+             stroke-width="0"
+             x="-46.132961"
+             y="197.45758"
+             id="svg_3"
+             font-size="66.6312px"
+             font-family="Asap"
+             text-anchor="start"
+             xml:space="preserve"
+             font-weight="bold"
+             stroke="#000000"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#4e4e4e;fill-opacity:1">Not available</text>
+          <text
+             fill="#000000"
+             stroke-width="0"
+             x="161.28569"
+             y="263.8754"
+             id="svg_4"
+             font-size="44.4208px"
+             font-family="Asap"
+             text-anchor="start"
+             xml:space="preserve"
+             font-weight="normal"
+             stroke="#000000"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:45px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#4e4e4e;fill-opacity:1"><tspan
+               sodipodi:role="line"
+               id="tspan3525"
+               x="161.28569"
+               y="263.8754"
+               style="fill:#4e4e4e;fill-opacity:1;stroke-width:0">Please set a</tspan><tspan
+               sodipodi:role="line"
+               id="tspan3527"
+               x="161.28569"
+               y="308.8754"
+               style="fill:#4e4e4e;fill-opacity:1;stroke-width:0">valid file extension</tspan></text>
+          <text
+             fill="#000000"
+             stroke-width="0"
+             x="-23.681936"
+             y="365.08365"
+             id="svg_5"
+             font-size="27.3723px"
+             font-family="Asap"
+             text-anchor="start"
+             xml:space="preserve"
+             stroke="#000000"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;fill:#4e4e4e;fill-opacity:1">.png  .gif  .jpg  .jpeg  .svg  .pdf</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

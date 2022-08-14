@@ -49,3 +49,20 @@ ul.opp-drag-over:not(.file-tree-list)::after {
   object-fit: contain;
   object-position: center;
 }
+
+.file-view embed, .file-view img {
+  background-color: #fff;
+  border: 1px solid #7a7a7a;
+  box-shadow: 0 2px 3px #7a7a7a;
+  display: block;
+  margin: auto;
+  margin-top: 12.5px;
+  max-height: 90%;
+  max-width: 100%;
+  width: 70%;
+  object-fit: contain;
+}
+
+.file-view .opp-compat-pdf {
+  height: 100%;
+}

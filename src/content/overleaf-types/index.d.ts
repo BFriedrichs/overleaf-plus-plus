@@ -8,7 +8,7 @@ import {
   InternalDoc,
   InternalFolder,
 } from './files';
-import State from './state';
+import State, { ScopeEventListener } from './state';
 declare namespace Overleaf {
   export interface OverleafWindow extends Window {
     _ide: State;
@@ -16,7 +16,7 @@ declare namespace Overleaf {
   }
 
   export { State };
-
+  export { ScopeEventListener };
   export declare namespace Editor {
     type Manager = AceManager;
     export { Manager, ChangeEvent };

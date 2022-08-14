@@ -1,8 +1,25 @@
 import { AceManager } from './ace';
-import { FolderFileEntity, FileTreeManager, InternalFolder } from './files';
+import {
+  FolderFileEntity,
+  FileTreeManager,
+  InternalFolder,
+  FileEntity,
+} from './files';
+
+export type ScopeEventListener = (
+  event: {
+    currentScope: null;
+    defaultPrevented: boolean;
+    name: string;
+    preventDefault: () => void;
+    stopPropagation: () => void;
+  },
+  doc: FileEntity
+) => void;
 
 type State = {
   $scope: {
+    $on: (name: string, cb: ScopeEventListener) => void;
     state: {
       loading: boolean;
       load_progress: number;

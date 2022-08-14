@@ -16,7 +16,7 @@ const onCommunication = (
   switch (channel) {
     case 'getAssetURLs':
       sendReply<AssetURLs>({
-        notfound: chrome.runtime.getURL('images/notfound.jpeg'),
+        notfound: chrome.runtime.getURL('images/notfound.png'),
       });
       break;
   }

@@ -1,14 +1,13 @@
 import { getLineElement, onTextHover } from '../managers/editor';
 import { findEntityByPath } from '../managers/fileTree';
-import { getApplicationState } from '../state';
 import { getAsset } from '../bridge';
 import { createCompatImageElement } from './ImageCompat';
+import { getFileUrl } from '../util';
 
 let lastLine: number;
 const popup = document.createElement('div');
 
 export const initialisePreview = async () => {
-  const applicationState = getApplicationState();
   popup.classList.add('opp-hoverer-popup');
   document.body.appendChild(popup);
 
@@ -35,17 +34,19 @@ export const initialisePreview = async () => {
     }
     const imagePath = graphicsMatch[1];
     const element = getLineElement(position.row);
+    if (!element) {
+      return;
+    }
     element.classList.add('opp-hovered-line');
     popup.style.display = 'block';
-    const projectId = applicationState.project_id;
     const foundFile = findEntityByPath(imagePath);
 
     let url = getAsset('notfound');
     if (foundFile) {
-      url = `${window.location.origin}/project/${projectId}/file/${foundFile.id}`;
+      url = getFileUrl(foundFile.id);
     }
     if (popup.childNodes.length > 0) {
-      popup.removeChild(popup.childNodes[0]);
+      popup.innerHTML = '';
     }
 
     const compatImage = await createCompatImageElement(url, foundFile?.name);
