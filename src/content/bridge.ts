@@ -1,7 +1,9 @@
 import { AssetURLs, OPPEvent } from '../shared';
+import { OPPStorage } from '../storage';
 
 const pendingMessages: Record<string, ((response: any) => void)[]> = {};
 export let assetURLs: AssetURLs;
+export let settings: OPPStorage;
 
 export const sendMessage = async <T>(
   channel: string,
@@ -28,6 +30,7 @@ export const initialiseBridge = async () => {
   }) as EventListener);
 
   assetURLs = await sendMessage('getAssetURLs');
+  settings = await sendMessage('getSettings');
 };
 
 export const getAsset = (name: keyof AssetURLs) => {

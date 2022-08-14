@@ -4,9 +4,8 @@
   "description": "Extensions and enhancements added to Overleaf",
   "version": "0.0.1",
   "icons": {
-    "128": "images/icon_128.png"
+    "128": "images/logo_128.png"
   },
-  "homepage": "https://github.com/BFriedrichs/overleaf-plus-plus",
   "action": {
     "default_popup": "src/popup/index.html"
   },
@@ -15,8 +14,14 @@
     "matches": ["<all_urls>"]
   }],
   "permissions": [
-    "activeTab",
-    "tabs"
+    "storage",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "https://*.overleaf.com/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
   ],
   "content_scripts": [
     {

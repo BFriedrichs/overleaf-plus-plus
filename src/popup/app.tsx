@@ -1,32 +1,71 @@
-import { useState } from 'preact/hooks';
-import preactLogo from './assets/preact.svg';
+import { useState, useEffect, useCallback } from 'preact/hooks';
+import { getValues, OPPStorage, setValue } from '../storage';
 import './app.css';
 
 export function App() {
-  const [count, setCount] = useState(0);
+  const [settings, _setSettings] = useState<OPPStorage>();
+
+  useEffect(() => {
+    const loadValues = async () => {
+      const stored: OPPStorage = await getValues(null);
+      _setSettings(stored);
+    };
+    loadValues();
+  }, []);
+
+  const updateSetting = useCallback(
+    async (key: keyof OPPStorage, value: OPPStorage[keyof OPPStorage]) => {
+      await setValue(key, value);
+      _setSettings((prevProps) => ({
+        ...(prevProps as OPPStorage),
+        [key]: value,
+      }));
+    },
+    []
+  );
+
+  if (!settings) {
+    return <>Loading</>;
+  }
 
   return (
     <>
+      <h2>Overleaf++</h2>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
+        <div>
+          <span>Enable file drop: </span>
+          <input
+            type="checkbox"
+            checked={settings.fileDropEnabled}
+            onChange={async (event) => {
+              const checked = event.currentTarget.checked;
+              updateSetting('fileDropEnabled', checked);
+            }}
+          />
+        </div>
+        <div>
+          <span>Enable pdf/svg viewing: </span>
+          <input
+            type="checkbox"
+            checked={settings.imageCompatEnabled}
+            onChange={async (event) => {
+              const checked = event.currentTarget.checked;
+              updateSetting('imageCompatEnabled', checked);
+            }}
+          />
+        </div>
+        <div>
+          <span>Enable peek preview: </span>
+          <input
+            type="checkbox"
+            checked={settings.peekPreviewEnabled}
+            onChange={async (event) => {
+              const checked = event.currentTarget.checked;
+              updateSetting('peekPreviewEnabled', checked);
+            }}
+          />
+        </div>
       </div>
-      <h1>Hello!</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/app.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
     </>
   );
 }
