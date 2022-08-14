@@ -1,3 +1,4 @@
+import { Overleaf } from '../overleaf-types';
 import { getApplicationState } from '../state';
 
 export const getRawFileTreeManager = () => {
@@ -18,7 +19,10 @@ export const findParentFolder = (id: string) => {
   return treeManager._findParentFolder(findEntityById(id));
 };
 
-export const onFileUploaded = (toFolder: string, fileRef: Overleaf.FileRef) => {
+export const onFileUploaded = (
+  toFolder: string,
+  fileRef: Overleaf.File.Internal.FileRef
+) => {
   const applicationState = getApplicationState();
   const treeManager = getRawFileTreeManager();
   const parent = treeManager.findEntityById(toFolder) || getRootFolder();

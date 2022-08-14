@@ -1,5 +1,5 @@
 import { post } from '../api';
-import { findParentFolder, getRootFolder, onFileUploaded } from '../managers/fileTree';
+import { findParentFolder, getRootFolder } from '../managers/fileTree';
 import { getFiberProps } from '../react';
 import { debug, waitForElement } from '../util';
 

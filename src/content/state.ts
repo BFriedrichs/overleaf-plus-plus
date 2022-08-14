@@ -1,6 +1,7 @@
+import { Overleaf } from './overleaf-types';
 import { debug } from './util';
 
-declare const window: Overleaf.Window;
+declare const window: Overleaf.OverleafWindow;
 
 let applicationState: Overleaf.State;
 
