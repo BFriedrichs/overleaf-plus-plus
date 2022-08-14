@@ -3,6 +3,10 @@
   "name": "Overleaf++",
   "description": "Extensions and enhancements added to Overleaf",
   "version": "0.0.1",
+  "icons": {
+    "128": "images/icon_128.png"
+  },
+  "homepage": "https://github.com/BFriedrichs/overleaf-plus-plus",
   "action": {
     "default_popup": "src/popup/index.html"
   },
