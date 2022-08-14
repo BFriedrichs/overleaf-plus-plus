@@ -1,6 +1,6 @@
 import { post } from '../api';
+import { findParentFolder, getRootFolder, onFileUploaded } from '../managers/fileTree';
 import { getFiberProps } from '../react';
-import { findFileFolderId, getRootFolder } from '../state';
 import { debug, waitForElement } from '../util';
 
 type FolderFiberProps = {
@@ -88,24 +88,23 @@ const createFileDrop = async () => {
 
       const target = findParentItem(event.target);
       // root folder by default
-      let folderId = getRootFolder()._id;
+      let folderId = getRootFolder().id;
       if (target) {
         const fiberProps = getFiberProps<FolderFiberProps>(target);
         if (fiberProps) {
           console.log('Found fiber', fiberProps);
-          const lookupId = findFileFolderId(fiberProps.id);
-          if (lookupId) {
-            folderId = lookupId;
+          const parent = findParentFolder(fiberProps.id);
+          if (parent) {
+            folderId = parent.id;
           }
         }
       }
 
       const { origin, pathname } = window.location;
       const uploadUrl = origin + pathname + `/upload?folder_id=${folderId}`;
-      const result = await post(uploadUrl, {
+      await post(uploadUrl, {
         body: formData,
       });
-      console.log(result);
     }
   });
   debug('Registered file tree drop zone');

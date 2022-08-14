@@ -1,13 +1,8 @@
 import { debug } from './util';
 
-interface overleafWindow extends Window {
-  _ide: OverleafState;
-  data: OverleafData;
-}
+declare const window: Overleaf.Window;
 
-declare const window: overleafWindow;
-
-let applicationState: OverleafState;
+let applicationState: Overleaf.State;
 
 export const initApplicationState = () => {
   return new Promise((resolve) => {
@@ -24,33 +19,6 @@ export const initApplicationState = () => {
 
 export const getApplicationState = () => {
   return applicationState;
-};
-
-export const getRootFolder = () => {
-  return applicationState.outlineManager.scope.project.rootFolder[0];
-};
-
-export const findFileFolderId = (
-  fileId: string,
-  folder: OverleafFolder = getRootFolder()
-): string | undefined => {
-  const { folders = [], fileRefs = [], docs = [] } = folder;
-  const children: { _id: string }[] = [...folders, ...fileRefs, ...docs];
-  const foundChild = children.find((child) => {
-    child._id === fileId;
-  });
-  if (foundChild) {
-    // If it's a direct child return current folder
-    return folder._id;
-  }
-  for (const subFolder of folders) {
-    // search all sub folders for a match
-    const foundSubChildId = findFileFolderId(fileId, subFolder);
-    if (foundSubChildId) {
-      return foundSubChildId;
-    }
-  }
-  return folder._id;
 };
 
 export const getData = () => {
