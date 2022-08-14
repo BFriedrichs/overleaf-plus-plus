@@ -1,4 +1,5 @@
 import Data from './data';
+import { ChangeEvent, AceManager } from './ace';
 import {
   FileTreeManager,
   FileEntity,
@@ -6,7 +7,7 @@ import {
   InternalFileRef,
   InternalDoc,
   InternalFolder,
-} from './managers';
+} from './files';
 import State from './state';
 declare namespace Overleaf {
   export interface OverleafWindow extends Window {
@@ -15,6 +16,11 @@ declare namespace Overleaf {
   }
 
   export { State };
+
+  export declare namespace Editor {
+    type Manager = AceManager;
+    export { Manager, ChangeEvent };
+  }
 
   export declare namespace File {
     type Manager = FileTreeManager;

@@ -7,7 +7,7 @@
     "default_popup": "src/popup/index.html"
   },
   "web_accessible_resources": [{
-    "resources": ["assets/content.js"],
+    "resources": ["assets/content.js", "images/notfound.jpeg"],
     "matches": ["<all_urls>"]
   }],
   "permissions": [

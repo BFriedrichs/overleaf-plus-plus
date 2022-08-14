@@ -1,7 +1,7 @@
 import { post } from '../api';
 import { findParentFolder, getRootFolder } from '../managers/fileTree';
 import { getFiberProps } from '../react';
-import { debug, waitForElement } from '../util';
+import { debug, waitFor } from '../util';
 
 type FolderFiberProps = {
   id: string;
@@ -26,10 +26,11 @@ const findParentItem = (target: HTMLElement) => {
 
 const attachDragStyling = (fileTree: HTMLElement) => {
   const removeAllHighlights = () => {
-    const currentlyHighlighted = document.getElementsByClassName('drag-over');
+    const currentlyHighlighted =
+      document.getElementsByClassName('opp-drag-over');
     if (currentlyHighlighted.length > 0) {
       for (const dragOver of currentlyHighlighted) {
-        dragOver.classList.remove('drag-over');
+        dragOver.classList.remove('opp-drag-over');
       }
     }
   };
@@ -42,11 +43,11 @@ const attachDragStyling = (fileTree: HTMLElement) => {
     const treeItem = findParentItem(event.target);
     removeAllHighlights();
     if (treeItem?.nextElementSibling?.tagName == 'UL') {
-      treeItem.nextElementSibling.classList.add('drag-over');
+      treeItem.nextElementSibling.classList.add('opp-drag-over');
     } else if (treeItem?.parentElement?.tagName == 'UL') {
-      treeItem.parentElement.classList.add('drag-over');
+      treeItem.parentElement.classList.add('opp-drag-over');
     } else if (event.currentTarget instanceof HTMLElement) {
-      event.currentTarget.classList.add('drag-over');
+      event.currentTarget.classList.add('opp-drag-over');
     }
   });
   fileTree.addEventListener('dragend', removeAllHighlights);
@@ -54,8 +55,8 @@ const attachDragStyling = (fileTree: HTMLElement) => {
 };
 
 const createFileDrop = async () => {
-  const fileTree = await waitForElement(
-    () => document.getElementsByClassName('file-tree-list')[0]
+  const fileTree = await waitFor<HTMLElement>(
+    () => document.getElementsByClassName('file-tree-list')[0] as HTMLElement
   );
   attachDragStyling(fileTree);
 

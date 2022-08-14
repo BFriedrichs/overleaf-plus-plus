@@ -1,21 +1,13 @@
 import { Overleaf } from './overleaf-types';
-import { debug } from './util';
+import { debug, waitFor } from './util';
 
 declare const window: Overleaf.OverleafWindow;
 
 let applicationState: Overleaf.State;
 
-export const initApplicationState = () => {
-  return new Promise((resolve) => {
-    const interval = setInterval(() => {
-      if (window._ide) {
-        applicationState = window._ide;
-        clearInterval(interval);
-        debug('Application state found and set.');
-        resolve(true);
-      }
-    });
-  });
+export const initApplicationState = async () => {
+  await waitFor(() => window._ide?.$scope?.state?.loading === false);
+  applicationState = window._ide;
 };
 
 export const getApplicationState = () => {

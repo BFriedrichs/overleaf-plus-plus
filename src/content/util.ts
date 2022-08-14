@@ -1,18 +1,16 @@
-export const waitForElement = async (
-  selector: () => Element
-): Promise<HTMLElement> => {
+export const waitFor = async <T>(selector: () => T): Promise<T> => {
   let interval: number;
   return new Promise((resolve) => {
     const element = selector();
     if (element) {
-      resolve(element as HTMLElement);
+      resolve(element as T);
       return;
     }
     interval = setInterval(() => {
       const element = selector();
       if (element) {
         clearInterval(interval);
-        resolve(element as HTMLElement);
+        resolve(element as T);
       }
     }, 1000);
   });

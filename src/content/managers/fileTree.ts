@@ -1,4 +1,5 @@
 import { Overleaf } from '../overleaf-types';
+import { FolderFileEntity } from '../overleaf-types/files';
 import { getApplicationState } from '../state';
 
 export const getRawFileTreeManager = () => {
@@ -6,12 +7,16 @@ export const getRawFileTreeManager = () => {
   return applicationState.fileTreeManager;
 };
 
-export const getRootFolder = () => {
-  return getRawFileTreeManager().getCurrentFolder();
+export const getRootFolder = (): FolderFileEntity => {
+  return getApplicationState().$scope.rootFolder;
 };
 
 export const findEntityById = (id: string) => {
   return getRawFileTreeManager().findEntityById(id);
+};
+
+export const findEntityByPath = (path: string) => {
+  return getRawFileTreeManager().findEntityByPath(path);
 };
 
 export const findParentFolder = (id: string) => {

@@ -2,10 +2,22 @@ import { defineConfig } from 'vite';
 import { fileURLToPath } from 'url';
 import preact from '@preact/preset-vite';
 
+const iifeWrap = () => {
+  return {
+    name: 'iife-wrap-content',
+
+    generateBundle(code, bundle) {
+      const codeBundle = bundle['assets/content.js'];
+      codeBundle['code'] = `(() => {${codeBundle['code']}})();`;
+    },
+  };
+};
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [preact()],
   build: {
+    // sourcemap: 'inline',
     rollupOptions: {
       input: {
         popup: fileURLToPath(
@@ -23,6 +35,7 @@ export default defineConfig({
         chunkFileNames: `assets/[name].js`,
         assetFileNames: `assets/[name].[ext]`,
       },
+      plugins: [iifeWrap()],
     },
   },
 });
